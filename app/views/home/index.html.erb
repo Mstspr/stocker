@@ -1,2 +1,16 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= form_tag root_path, :method => 'POST' do %>
+<%= text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Sumbol', size:50 %>
+<%= submit_tag 'LookUp Stock Quote' %>
+<% end %>
+
+<br>
+<br>
+<% if @stock %>
+    <%= @stock.name %>
+<% elsif @nothing %>
+    <%= @nothing %>
+<% end %>
+
+<% if @error %>
+    <%= @error %>
+<% end %>
